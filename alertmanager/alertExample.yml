@@ -1,0 +1,20 @@
+- alert: Oscilação de Trafego acima de 100% porcento das Operações
+    expr: round((trafegoTransacaoTempoReal - trafegoTransacaoOffset) / (trafegoTransacaoOffset > 0) * 100) > 100
+      for: 7m
+        labels:
+          omi: sim
+            severity: Major
+            time: 7 minutos
+            type: Negocio
+            prometheus: pn4-alerts-apfweb
+            threshold_value: acima de 100%
+            centralizador: sim    
+            service: equipe-mainframe
+            channel: apf-web
+            prsn: Total de registros de tráfego comparados ao total do tráfego de 10 minutos atrás
+            type_signal: Alerta de oscilação de Tráfego
+            sigla: 012
+          annotations:
+          message: O trafego está {{$value}}% superior as informações de 10 minutos atrás.
+            runbook_url: 'https://ci.bb.com.br/novo/images/4/43/Roteiro_de_recupera%C3%A7%C3%A3o_do_erro_opera%C3%A7%C3%A3o_012_-_Mobile_PF.pdf'
+            clusterName: Producao

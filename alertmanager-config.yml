@@ -3,7 +3,7 @@ global:
   smtp_smarthost: 'google.com:587'
   smtp_from: 'daysacsilva@gamil.com'
   smtp_auth_username: 'daysacsilva'
-  smtp_auth_password: 'daysacaua2011'
+  smtp_auth_password: 'senhafalsa'
 
 # The directory from which notification templates are read.
 templates:

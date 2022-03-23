@@ -15,10 +15,9 @@ server:
   grpc_server_max_concurrent_streams: 1000
 
 alertmanager:
-  storage: 
-    type: local
-    local: 
-      path: /etc/alertmanager/config.yml
+  #data_dir: data
+  external_url: '/api/prom/alertmanager'
+  fallback_config_file: /var/alertmanager-config.yml
 
 alertmanager_storage:
   backend: filesystem

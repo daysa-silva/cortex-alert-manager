@@ -1,0 +1,12 @@
+groups:
+  - name: Prometheus
+    rules:
+      - alert: Total de Requisicoes
+        expr: prometheus_http_requests_total > 15
+        # for: 15s
+        labels:
+          team: developers
+          severity: high
+        annotations:
+          summary: O total de requisicoes esta alto
+          description: "O servidor prometheus {{$labels.instance}} esta muito requisitado. (requisicoes: ${{$value}})"

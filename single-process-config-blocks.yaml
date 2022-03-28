@@ -18,11 +18,12 @@ alertmanager:
   #data_dir: data
   external_url: '/api/prom/alertmanager'
   fallback_config_file: /var/alertmanager-config.yml
+  enable_api: true
 
 alertmanager_storage:
   backend: filesystem
   filesystem:
-    dir: /etc/alertmanager
+    dir: /tmp/alertmanager
 
 
 distributor:
@@ -68,21 +69,6 @@ blocks_storage:
   # You can choose between local storage and Amazon S3, Google GCS and Azure storage. Each option requires additional configuration
   # as shown below. All options can be configured via flags as well which might be handy for secret inputs.
   backend: filesystem # s3, gcs, azure or filesystem are valid options
-  # s3:
-  #   bucket_name: cortex
-  #   endpoint: s3.dualstack.us-east-1.amazonaws.com
-    # Configure your S3 credentials below.
-    # secret_access_key: "TODO"
-    # access_key_id:     "TODO"
-#  gcs:
-#    bucket_name: cortex
-#    service_account: # if empty or omitted Cortex will use your default service account as per Google's fallback logic
-#  azure:
-#    account_name:
-#    account_key:
-#    container_name:
-#    endpoint_suffix:
-#    max_retries: # Number of retries for recoverable errors (defaults to 20)
   filesystem:
     dir: ./data/tsdb
 
